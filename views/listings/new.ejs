@@ -1,0 +1,92 @@
+<% layout("layouts/boilerplate.ejs") %>
+    <!-- <form method="post" action="/listings">
+        <input name="title" placeholder="Enter title of your property" type="text">
+        <br><br>
+        <textarea name="description" placeholder="Enter description" type="text"></textarea>
+        <br><br>
+        <input name="image" placeholder="Enter image URL/Link" type="text">
+        <br><br>
+        <input name="price" placeholder="Enter price of your property" type="number">
+        <br><br>
+        <input name="location" placeholder="Enter location of your property" type="text">
+        <br><br>
+        <input name="country" placeholder="Enter country of your property" type="text">
+        <br><br>
+        <button>Add</button>
+    </form> -->
+  <div class="row">
+    <div class="col-8 offset-2">
+      <br> <br>
+      <h3>Create a new Listing</h3>
+      
+      <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data"> <!-- here we use novalidate to avoid the browser default error message i.e when we not enter anything in the required field it shows this is required field but it show different in different browser to avoid this we use novalidate it use defalut bootstrap -->
+        <!-- enctype use to overcome from url-encoded form from that we can send file to backend use: to send/upload images to backend -->
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input name="listing[title]" placeholder="Add a catchy title" type="text" class="form-control" required/>
+          <div class="valid-feedback">Title looks good!</div>
+          <div class="invalid-feedback">Enter the Title.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea
+            name="listing[description]"
+            placeholder="Enter description"
+            class="form-control"
+            required
+          ></textarea>
+          <div class="invalid-feedback">Enter a Short Description.</div>
+        </div>
+
+        <!-- <div class="mb-3">
+          <label for="image" class="form-label">Image</label>
+          <input
+            name="listing[image]"
+            placeholder="Enter image URL/Link"
+            type="text"
+            class="form-control"
+          />
+        </div> -->
+
+        <div class="mb-3">
+          <label for="image" class="form-label">Upload Listing Image</label>
+          <input
+            name="listing[image]"
+            type="file"
+            class="form-control"
+            required
+          />
+          
+        </div>
+        <div class="row">
+          <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Price</label>
+            <input name="listing[price]" placeholder="0000" type="number" class="form-control" required/>
+            <div class="invalid-feedback">Price should be valid.</div>  <!-- to print this, when nothing enter in required field  -->
+          </div>
+            
+          <div class="mb-3 col-md-8">
+            <label for="country" class="form-label">Country</label>
+            <input name="listing[country]" placeholder="India" type="text" class="form-control" required />
+            <div class="invalid-feedback">Country Name should be valid.</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="location" class="form-label">Location</label>
+          <input
+            name="listing[location]"
+            placeholder="Bengaluru, Hyderabad, jaipur, Delhi etc "
+            type="text"
+            class="form-control" required
+          />
+          <div class="invalid-feedback">Location should be valid.</div>
+        </div>
+          
+          <br />
+          <button class="btn btn-dark add-btn mt-3 mb-3">Add</button>
+          <br> <br>
+      </form>
+  </div>
+  </div>
