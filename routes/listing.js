@@ -2,7 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const wrapAsync = require("../utils/wrapAsync.js");
-// const ExpressError = require("../utils/expressError.js");
+// const ExpressError = require("../utils/ExpressError.js");
 // const { listingSchema } = require("../schema.js");
 const Listing = require("../models/listing.js");
 const {isLoggedIn, isOwner, validateListing} = require("../middleware.js");  //we use this to check whether the user is logged in  or not
