@@ -38,7 +38,7 @@ main().then(() => {
 });
 
 async function main() {
-    await mongoose.connect(dbUrl);
+    await mongoose.connect(mongo_url); //mongo_url
 }
 
 app.set("view engine", "ejs");
@@ -73,7 +73,7 @@ app.use(express.static(path.join(__dirname,"/public")));//to use static file(pub
 // }
 
 const store = MongoStore.create({
-    mongoUrl: dbUrl,
+    mongoUrl: dbUrl,  //mongo_url
     crypto:{
         secret: process.env.SECRET,
     },
