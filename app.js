@@ -7,8 +7,8 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const mongoose = require("mongoose");
-// const mongo_url = "mongodb://127.0.0.1:27017/wanderlust";
-const dbUrl = process.env.ATLASDB_URL; //we use this because to deploy our website to cloud
+const mongo_url = "mongodb://127.0.0.1:27017/wanderlust";
+// const dbUrl = process.env.ATLASDB_URL; //we use this because to deploy our website to cloud
 
 
 // const Listing = require("./models/listing.js");
@@ -38,7 +38,7 @@ main().then(() => {
 });
 
 async function main() {
-    await mongoose.connect(dbUrl); //mongo_url
+    await mongoose.connect(mongo_url); //dbUrl
 }
 
 app.set("view engine", "ejs");
@@ -73,7 +73,7 @@ app.use(express.static(path.join(__dirname,"/public")));//to use static file(pub
 // }
 
 const store = MongoStore.create({
-    mongoUrl: dbUrl,  //mongo_url
+    mongoUrl: mongo_url,  //dbUrl
     crypto:{
         secret: process.env.SECRET,
     },
